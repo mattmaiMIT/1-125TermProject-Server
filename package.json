@@ -1,0 +1,24 @@
+{
+  "name": "iotserver",
+  "version": "1.0.0",
+  "description": "MIT1125 term project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build-docker-image": "docker build -t matthew6/1-125term_project_server .; docker images",
+    "run-docker-image": "docker run -p 3001:3001 --name myiotserver01 -d -t matthew6/1-125term_project_server; docker ps",
+    "start-docker-container": "docker start myiotserver01; docker ps",
+    "stop-docker-container": "docker stop myiotserver01; docker ps",
+    "remove-docker-container": "docker rm myiotserver01; docker ps --all",
+    "remove-docker-image": "docker rmi matthew6/1-125term_project_server; docker images"
+  },
+  "author": "Matt Mai",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3"
+  }
+}
