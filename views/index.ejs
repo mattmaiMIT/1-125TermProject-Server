@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Index</title>
+
+    </head>
+
+    <body>
+        <% if (device_ids.length > 0){ %>
+            <p>
+                <h1> Check status of <%= device_ids.length%> devices </br> </h1>
+                <% device_ids.forEach(function(id){ %>
+                    <p>
+                        <h1> <%= id %></h1>
+                        <ul>
+                            <h2> <a href='/monitor/<%= id %>'>Open monitor</a> </h2> 
+                            <h2> <a href='/history/<%= id %>/100'> View the latest 100 data </a> </h2> 
+                            <h2> <a href='/api/history/<%= id %>/100'> Request the latest 100 raw data </a> </h2> 
+                        </ul>
+                    </p>
+                <% }); %>
+            </p>    
+        <% } else { %>
+            <h1>No Active Device...</h1>
+        <% } %>    
+    </body>
+    
+</html>

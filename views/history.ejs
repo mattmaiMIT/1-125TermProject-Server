@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>History (<%= device_id %>)</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <body>
+        <% if (data) {%>
+            <div class="w3-card" style="margin:auto; width:80%; padding: 20px">
+                <table class="w3-table-all w3-hoverable">
+                    <tr>
+                        <th class="w3-center">&nbsp;</th>
+                        <th class="w3-center">Power (kW)</th>
+                        <th class="w3-center">Power Factor (%)</th>
+                        <th class="w3-center">Frequency (Hz)</th>
+                        <th class="w3-center">Occur Time</th>
+                        <th class="w3-center">Log Time</th>
+                    </tr>
+                    <%data.forEach(function(d){%>
+                        <tr>
+                            <td class="w3-center">&nbsp;</td>
+                            <td class="w3-center"><%= d.output_power%></td>
+                            <td class="w3-center"><%= d.power_factor%></td>
+                            <td class="w3-center"><%= d.frequency%></td>
+                            <td class="w3-center"><%= d.ts_generated.toISOString()%></td>
+                            <td class="w3-center"><%= d.ts_received.toISOString()%></td>
+                        </tr>
+                    <%});%>
+                </table>
+            </div>
+        <%} else {%>
+            <h2>No Data!!</h2>
+        <%}%>
+    </body>
+</html>
